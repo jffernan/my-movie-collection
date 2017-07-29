@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'users/signup'
     else
-      redirect to '/movies' #back to home
+      redirect to '/movies'
     end
   end
 
@@ -21,6 +21,36 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id #set session for user by user_id
       erb 'users/welcome'
     end
-  end
+
+    get '/login' do
+      if !logged_in?
+        erb :'users/login'
+      else
+        redirect to '/movies'
+      end
+    end
+
+    post '/login' do
+      user = User.find_by(:username => params[:username]) #username match
+      if user && user.authenticate(params[:password]) #use bcrypt
+        session[:user_id] = user.id #set session for user by user id
+        redirect to '/movies'
+      else
+        redirect to '/error' #login invalid, display error msg
+      end
+    end
+
+    get '/error' do
+      erb :'users/error'
+    end
+
+    get '/logout' do
+      if logged_in?
+        session.clear
+        redirect to '/login'
+      else
+        redirect to '/'
+      end
+    end
 
 end
