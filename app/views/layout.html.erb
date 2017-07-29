@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Movie Collection</title>
+  </head>
+  <body>
+      <nav>
+        <% if logged_in? %>
+        <!-- need links -->
+          <h3>Welcome, <%= current_user.username.upcase_first %>! <!--Capitalize 1st letter of username-->
+          </h3>
+        <% else %>
+          <a href = "/signup">Signup</a>
+          <a href = "/login">Login</a>
+        <% end %>
+      </nav>
+    <div class = "container">
+      <h1>My Movie Collection</h1>
+      <%= yield %> <!--Layout will render this html view throughout all pages via yield-->
+    </div>
+  </body>
+</html>
