@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       @user = User.new(:username => params[:username], :password => params[:password]) #hash (params[:model])
       @user.save
       session[:user_id] = @user.id #set session for user by user_id
-      erb 'users/welcome'
+      erb :'users/welcome'
     end
   end
 
