@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id #set session for user by user_id
       erb 'users/welcome'
     end
+  end
 
     get '/login' do
       if !logged_in?
@@ -52,5 +53,4 @@ class UsersController < ApplicationController
         redirect to '/'
       end
     end
-
 end
