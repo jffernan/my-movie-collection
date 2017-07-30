@@ -1,7 +1,7 @@
-<h3>Here is the movie: <%= @movie.title %> </h3>
+<h2>Movie: "<%= @movie.title %>" </h2>
 <ul>
   <li>Comment(s): <%= @movie.comment %></li>
-  <li>Cuisine: <%= @movie.cuisine %></li>
+  <li>Date Purchased: <%= @movie.date_purchased %></li>
 <% if current_user != @movie.user %> <!--show only another's username-->
   <li>Owned by: <strong><%= @movie.user.username %></strong></li>
 <% end %>

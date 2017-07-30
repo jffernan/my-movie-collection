@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
    else
      redirect to '/login'
    end
- end
+  end
 
  get '/movies/all' do
    if logged_in? #show all movies by users by alphabetized list
@@ -27,8 +27,7 @@ class MoviesController < ApplicationController
 
  post '/movies' do
    if params[:title].empty? || #If to test if user enters inputs
-     params[:comment].empty? ||
-     params[:date_purchased].empty? == ""
+     params[:comment].empty? == ""
      redirect to '/movies/new'
    end
    @movie = Movie.new(
@@ -49,16 +48,45 @@ class MoviesController < ApplicationController
     end
   end
 
-get '/movies/:id/edit' do
- if logged_in?
-   @movie = Movie.find_by_id(params[:id])
-   if @movie && @movie.user_id == current_user.id
-     erb :'movies/edit'
+  get '/movies/:id/edit' do
+   if logged_in?
+     @movie = Movie.find_by_id(params[:id])
+     if @movie && @movie.user_id == current_user.id
+       erb :'movies/edit'
+     else
+       redirect to "/movies/#{params[:id]}" #Test user can't edit another user movie
+     end
    else
-     redirect to "/movies/#{params[:id]}" #Test user can't edit another user movie
+     redirect to '/login'
    end
- else
-   redirect to '/login'
  end
+
+ patch '/movies/:id' do	#PATCH use Rack::MethodOverride
+   if params[:title].empty? || params[:comment].empty? == ""
+      redirect to "/movies/#{params[:id]}/edit"
+   end
+   @movie = Movie.find_by_id(params[:id])
+      if @movie && @movie.user_id == current_user.id #Validate User if this his movie
+        @movie.update(title: params[:title])
+        @movie.update(comment: params[:comment])
+        @movie.update(date_purchased: params[:date_purchased])
+        @movie.save
+        redirect to "/movies/#{params[:id]}" #show new edit(s)
+      end
+  end
+
+  delete '/movies/:id/delete' do#DELETE need HIDDEN button erb
+    if logged_in?
+      @movie = Movie.find_by_id(params[:id])
+      if @movie.user_id == current_user.id #validate if user owns this movie or not?
+        @movie.delete
+        redirect to '/movies' #go back to user list of movies
+      else
+        redirect to "/movies/#{params[:id]}" #Test user can't delete another user movie
+      end
+    else
+      redirect to '/login'
+    end
+  end
 
 end
