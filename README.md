@@ -4,7 +4,7 @@ Welcome to My Movie Collection Sinatra app where you can Create, Read, Update, a
 
 ## Installation
 
-To use this app, clone from GitHub 'git@github.com:jffernan/my-movie-collection.git' , then run `bundle install`, and run `shotgun`. Last, click on the http link to open my app in your browser.
+To use this app, clone from GitHub 'git clone git@github.com:jffernan/my-movie-collection.git' , then run `bundle install`, and run `shotgun`. Last, click on the http link to open my app in your browser.
 
 ## Contributing
 
