@@ -1,10 +1,10 @@
 # my-movie-collection
 
-Welcome to My Movie Collection Sinatra app where you can Create, Read, Update, and Delete movies that you own. Here you can build and keep track of your DVD/Blu-Ray collection. You can also add movie comments and date purchased.
+Welcome to My Movie Collection Sinatra app where you can Create, Read, Update, and Delete movies that you own. Here you can build and keep track of your DVD/Blu-Ray collection. You can also add movie comments and date purchased.  Thank you for using my app.
 
 ## Installation
 
-To use this app, clone, run `rake db:migrate`, and run `shotgun`.
+To use this app, clone from GitHub 'git@github.com:jffernan/my-movie-collection.git' , then run `bundle install`, and run `shotgun`. Last, click on the http link to open my app in your browser.
 
 ## Contributing
 
