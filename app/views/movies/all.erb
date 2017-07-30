@@ -1,0 +1,16 @@
+<h3>Here are all movies posted by users (Click on a 'link'):</h3>
+<ul>
+  <%@movies.each do |movie|%>
+  <li>
+    <a href="/movies/<%=movie.id%>"><%=movie.title%>
+    </a> owned by
+    <% if current_user == movie.user %>
+      you
+    <% else %>
+      <%= movie.user.username %>
+    <% end %>
+  </li>
+  <%end%>
+</ul>
+<a href="/movies">(S)ee all your movies</a><br></br>
+<a href="/">Home</a>

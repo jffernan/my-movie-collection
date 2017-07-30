@@ -1,4 +1,8 @@
-
-
-
-<a href = "/">Home</a>
+<h3>Here is a list of your movies by title (Click on a 'link'):</h3>
+<ol>
+  <%@movies.each do |movie|%> <!--DON'T call method in erb views-->
+    <li><a href="/movies/<%=movie.id%>"><%=movie.title%></a></li><!--LINK to movie-->
+  <%end%>
+</ol>
+<a href="/movies/all">(S)ee all movies posted by users</a><br></br>
+<a href="/">Home</a>

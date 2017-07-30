@@ -1,4 +1,13 @@
-
-
-
-<a href = "/">Home</a>
+<form action="/movies/<%=@movie.id%>" method="post">
+  <fieldset>
+    <legend>Edit Your Movie Below:</legend>
+    <input type="text" name="title" id="title" value="<%= @movie.title %>"><br></br>
+      <textarea id="comment" name="comment" rows="5" cols="98"><%= @movie.comment %>
+      </textarea>
+      <br></br>
+    <input type="date" name="date_purchased" id="date_purchased" value="<%= @movie.date_purchased %>">
+      <br></br>
+  </fieldset>
+  <input type="hidden" id ="hidden" name="_method" value="PATCH">
+</form><br></br>
+<a href="/">Home</a>
