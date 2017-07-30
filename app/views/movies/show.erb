@@ -1,7 +1,7 @@
 <h2>Movie: "<%= @movie.title %>" </h2>
 <ul>
   <li>Comment(s): <%= @movie.comment %></li>
-  <li<%= @movie.date_purchased.strftime("Date Purchased: %m/%d/%Y") %></li>
+  <li><%= @movie.date_purchased.strftime("Date Purchased: %m/%d/%Y") %></li> <!--Date MO/DY?YEAR-->
 <% if current_user != @movie.user %> <!--show only another's username-->
   <li>Owned by: <strong><%= @movie.user.username %></strong></li>
 <% end %>
