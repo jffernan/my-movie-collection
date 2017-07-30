@@ -1,24 +1,18 @@
-# Specifications for the Rails Assessment
+# Specifications for the Sinatra Assessment
 
 Specs:
-- [x] Using Ruby on Rails for the project
-- [ ] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)
-- [ ] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
-- [ ] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
-- [ ] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
-- [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-- [ ] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
-- [ ] Include signup (how e.g. Devise)
-- [ ] Include login (how e.g. Devise)
-- [ ] Include logout (how e.g. Devise)
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [X] Use Sinatra to build the app => Shotgun gem installed.
+- [X] Use ActiveRecord for storing information in a database => rake db created migrations.
+- [X] Include more than one model class (list of model class names e.g. User, Post, Category) => user and movie models
+- [X] Include at least one has_many relationship (x has_many y e.g. User has_many Posts) => User has (owns) many movies while a movie belongs to (owned by) one user.
+- [X] Include user accounts. Tested.
+- [X] Ensure that users can't modify content created by other users. Tested.
+- [X] Include user input validations. Tested.
+- [X] Display validation failures to user with error message (example form URL e.g. /posts/new). Tested.
+- [X] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code. Done.
 
-Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+Confirm
+- [X] You have a large number of small Git commits => Done.
+- [X] Your commit messages are meaningful => Done.
+- [X] You made the changes in a commit that relate to the commit message => Done.
+- [X] You don't include changes in a commit that aren't related to the commit message => Done.
