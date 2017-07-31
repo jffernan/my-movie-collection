@@ -5,6 +5,9 @@
 <% if current_user != @movie.user %> <!--show only another's username-->
   <li>Owned by: <strong><%= @movie.user.username %></strong></li>
 <% end %>
+  <li>For more info about this movie, visit
+    <a href = "http://www.imdb.com/" value = "IMDb">IMDb - Movies, TV and Celebrities - IMDb
+    </a> <!--<%= @movie.title.downcase %>/-->
 </ul>
 
 <% if current_user == @movie.user %><!--don't show edit & delete if movie NOT belongs to user-->
