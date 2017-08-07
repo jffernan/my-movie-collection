@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
     @movies = current_user.movies.all.alphabetical_order #defined ActiveRecord method in model.rb
     erb :'movies/movies'
   end
-  
+
   get '/movies/all' do
     redirect to '/login' if !logged_in?
     @movies = Movie.all.alphabetical_order #defined ActiveRecord method in model.rb
@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   end
 
   get '/movies/new' do
-    redirect to '/login' if !logged_in? 
+    redirect to '/login' if !logged_in?
     erb :'movies/new'
   end
 
@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
     @movie = current_user.movies.build(params)
     if @movie.save
       redirect to "/movies/#{@movie.id}"
-    else 
+    else
       redirect to '/movies/new'
     end
   end
@@ -45,20 +45,34 @@ class MoviesController < ApplicationController
    end
  end
 
- patch '/movies/:id' do	
-   redirect to '/login' if !logged_in?
-   if params[:title].empty? || params[:comment].empty?
+ patch '/movies/:id' do	#PATCH use Rack::MethodOverride
+   if params[:title].empty? || params[:comment].empty? == ""
       redirect to "/movies/#{params[:id]}/edit"
    end
    @movie = Movie.find_by_id(params[:id])
-      if @movie && @movie.user_id == current_user.id 
-        if @movie.update(params)
-          redirect to "/movies/#{params[:id]}"
-        else 
-          redirect to "/movies/#{params[:id]}/edit"
-        end
+      if @movie && @movie.user_id == current_user.id #Validate User if this his movie
+        @movie.update(title: params[:title])
+        @movie.update(comment: params[:comment])
+        @movie.update(date_purchased: params[:date_purchased])
+        @movie.save
+        redirect to "/movies/#{params[:id]}" #show new edit(s)
       end
   end
+
+  #patch '/movies/:id' do
+  # redirect to '/login' if !logged_in?
+   #if params[:title].empty? || params[:comment].empty?
+      #redirect to "/movies/#{params[:id]}/edit"
+   #end
+   #@movie = Movie.find_by_id(params[:id])
+      #if @movie && @movie.user_id == current_user.id
+        #if @movie.update(params)
+          #redirect to "/movies/#{params[:id]}"
+      #  else
+          #redirect to "/movies/#{params[:id]}/edit"
+        #end
+      #end
+  #end
 
   delete '/movies/:id/delete' do
     redirect to '/login' if !logged_in?
