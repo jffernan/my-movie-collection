@@ -5,6 +5,7 @@ development:
   pool: 2
   username: postgres
   password: postgres
+  url: postgresql://xdeakonhjrivle:717abdebf23adc331816e9e5c0649c6c556e12ea6ea39e61416e36767406521d@ec2-107-21-126-193.compute-1.amazonaws.com:5432/d2gkmslbaele8v
 
 production:
   adapter: postgresql
