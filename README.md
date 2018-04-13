@@ -2,7 +2,7 @@
 
 Welcome to My Movie Collection Sinatra app where you can Create, Read, Update, and Delete movies that you own. Here you can build and keep track of your DVD/Blu-Ray collection. You can also add movie comments and date purchased.  Thank you for using my app.
 
-Demo at: https://sinatra-my-moview-collection.herokuapp.com/
+Demo at: https://sinatra-my-movie-collection.herokuapp.com/
 
 Video at: https://youtu.be/5Tn1zsfGp6U
 
