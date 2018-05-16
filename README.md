@@ -8,6 +8,8 @@ Video at: https://youtu.be/5Tn1zsfGp6U
 
 Visit my blog about this app at https://github.com/jffernan/jffernan.github.io/blob/master/_posts/2017-07-18-sinatra_portfolio_project_blog.markdown.
 
+Contact: James Fernandez | Email: jffernan@comcast.net | Phone: (206) 658-5295
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/'jffernan-75762'/my-movie-collection. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
